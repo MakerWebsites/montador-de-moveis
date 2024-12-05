@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,10 +14,11 @@
             color: #333;
             overflow-x: hidden;
         }
+
         header {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: space-around;
             padding: 10px 20px;
             background: #fff4f4;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -31,10 +33,14 @@
             color: #4facfe;
             transition: transform 0.3s ease-in-out;
         }
+
         .menu-toggle.open {
             transform: rotate(45deg);
         }
-
+        h1 {
+            padding: 0;
+            margin: 0;
+        }
         .menu {
             position: fixed;
             top: 0;
@@ -50,6 +56,7 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
         }
+
         .menu.open {
             display: flex;
             opacity: 1;
@@ -61,14 +68,17 @@
             padding: 0;
             text-align: center;
         }
+
         .menu ul li {
             padding: 10px 20px;
         }
+
         .menu ul li a {
             text-decoration: none;
             color: #333;
             font-size: 24px;
         }
+
         .menu button {
             position: absolute;
             top: 20px;
@@ -89,18 +99,25 @@
             overflow: hidden;
             position: relative;
         }
+
         .carousel-images {
             display: flex;
             animation: scroll 30s linear infinite;
         }
+
         .carousel img {
             width: 20%;
             margin-right: 10px;
         }
 
         @keyframes scroll {
-            50% { transform: translateX(-110%); }
-            100% { transform: translateX(110%); }
+            50% {
+                transform: translateX(-110%);
+            }
+
+            100% {
+                transform: translateX(110%);
+            }
         }
 
         footer {
@@ -109,9 +126,11 @@
             background: #333;
             color: #fff;
         }
+
         footer .social-links {
             margin: 10px 0;
         }
+
         footer .social-links a {
             color: #fff;
             margin: 0 5px;
@@ -130,6 +149,7 @@
             font-weight: bold;
             transition: background 0.3s;
         }
+
         .cta-button:hover {
             background: #00d4ff;
             color: #fff;
@@ -147,7 +167,8 @@
         }
 
         .fixed-menu a {
-            background: #25d366; /* WhatsApp Green */
+            background: #25d366;
+            /* WhatsApp Green */
             color: #fff;
             padding: 15px;
             border-radius: 50%;
@@ -158,7 +179,8 @@
         }
 
         .fixed-menu a.phone {
-            background: #34b7f1; /* Light blue for call */
+            background: #34b7f1;
+            /* Light blue for call */
         }
 
         .fixed-menu a:hover {
@@ -167,24 +189,91 @@
 
         /* Animação de trepidação */
         @keyframes shake {
-            0% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            50% { transform: translateX(5px); }
-            75% { transform: translateX(-5px); }
-            100% { transform: translateX(0); }
+            0% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-5px);
+            }
+
+            50% {
+                transform: translateX(5px);
+            }
+
+            75% {
+                transform: translateX(-5px);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
         }
 
         .fixed-menu a {
             animation: shake 2s ease-in-out infinite 3s;
         }
+
+        /* Section styles */
+        .animated-section {
+            position: relative;
+            width: 100%;
+            height: 10vh;
+            /* Ajuste conforme necessário */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Animated text */
+        .animated-text {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 3rem;
+            font-weight: bold;
+            color: #f1faee;
+            position: absolute;
+            white-space: nowrap;
+            animation: slideInOut 5s linear infinite;
+        }
+
+
+        /* Keyframes for animation */
+        @keyframes slideInOut {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+
+            10% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+
+            90% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
     </style>
 </head>
+
 <body>
     <header>
         <div class="menu-toggle" id="menuToggle" onclick="toggleMenu()">☰</div>
-        <img src="Gemini_Generated_Image_us627sus627sus62.jpg" alt="Logo da Empresa" style="height: 50px;">
+        <section class="animated-section">
+            <h1 class="animated-text"><img style="width: 200px;" src="Gemini_Generated_Image_us627sus627sus62.jpg" alt=""></h1>
+        </section>
     </header>
-    
+
+
+
+
     <nav class="menu" id="menu" aria-hidden="true">
         <button onclick="toggleMenu()">X</button>
         <ul>
@@ -197,11 +286,14 @@
             <div style="padding: 20px; background: #4facfe; color: #fff; text-align: center;">
                 <h2>Solicite um Orçamento Agora</h2>
                 <p>
-                    Entre em contato conosco e descubra como podemos ajudar você a transformar seus espaços com móveis montados com perfeição.
+                    Entre em contato conosco e descubra como podemos ajudar você a transformar seus espaços com móveis
+                    montados com perfeição.
                 </p>
                 <a href="#contato" class="cta-button">Solicitar Orçamento</a>
             </div>
         </section>
+
+
     </nav>
 
     <main>
@@ -220,7 +312,8 @@
         <div style="padding: 20px; background: #f9f9f9; text-align: center;">
             <h2>Sobre Nossa Empresa</h2>
             <p>
-                Somos especialistas na montagem de móveis de todos os tipos, desde móveis convencionais até modulados e corporativos. 
+                Somos especialistas na montagem de móveis de todos os tipos, desde móveis convencionais até modulados e
+                corporativos.
                 Nosso compromisso é garantir qualidade, agilidade e satisfação em cada serviço realizado.
             </p>
         </div>
@@ -230,7 +323,8 @@
         <div style="padding: 20px; background: #4facfe; color: #fff; text-align: center;">
             <h2>Solicite um Orçamento Agora</h2>
             <p>
-                Entre em contato conosco e descubra como podemos ajudar você a transformar seus espaços com móveis montados com perfeição.
+                Entre em contato conosco e descubra como podemos ajudar você a transformar seus espaços com móveis
+                montados com perfeição.
             </p>
             <a href="#contato" class="cta-button">Solicitar Orçamento</a>
         </div>
@@ -240,8 +334,10 @@
         <div style="max-width: 800px; margin: 0 auto; text-align: center;">
             <h2>Quem Somos</h2>
             <p>
-                Somos uma empresa especializada na montagem de móveis, comprometida em oferecer soluções práticas e de alta qualidade. 
-                Nossa equipe é composta por profissionais altamente qualificados e experientes, apaixonados por transformar projetos em realidade.
+                Somos uma empresa especializada na montagem de móveis, comprometida em oferecer soluções práticas e de
+                alta qualidade.
+                Nossa equipe é composta por profissionais altamente qualificados e experientes, apaixonados por
+                transformar projetos em realidade.
             </p>
         </div>
     </section>
@@ -251,65 +347,87 @@
             <h2 style="text-align: center; color: #333; font-size: 32px; margin-bottom: 20px;">Nossos Produtos</h2>
             <div class="produtos-lista" style="display: flex; overflow-x: auto; gap: 20px; padding-bottom: 10px;">
                 <!-- Item 1 -->
-                <div class="produto-item" style="flex: 0 0 auto; width: 250px; border: 1px solid #ddd; border-radius: 8px; background: #fff; text-align: center; padding: 15px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: background 0.3s ease;">
-                    <img src="br-11134207-7r98o-lqmchhwceza774.webp" alt="Aparador" style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px; transition: transform 0.3s ease;">
+                <div class="produto-item"
+                    style="flex: 0 0 auto; width: 250px; border: 1px solid #ddd; border-radius: 8px; background: #fff; text-align: center; padding: 15px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: background 0.3s ease;">
+                    <img src="br-11134207-7r98o-lqmchhwceza774.webp" alt="Aparador"
+                        style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px; transition: transform 0.3s ease;">
                     <h3 style="font-size: 20px; color: #333; margin: 10px 0;">Cabeceira</h3>
-                    <p style="font-size: 14px; color: #777;">Kit 7 Cabeceiras de Cama Box Casal Estofada Modulada 1,40mX45cm</p>
+                    <p style="font-size: 14px; color: #777;">Kit 7 Cabeceiras de Cama Box Casal Estofada Modulada
+                        1,40mX45cm</p>
                     <p style="font-size: 18px; font-weight: bold; color: #4facfe;">R$ 41,00 ~ R$ 73,99</p>
-                    <a href="https://shopee.com.br/product/303439692/21128791288" target="_blank" style="display: inline-block; padding: 10px 20px; background: #4facfe; color: #fff; text-decoration: none; border-radius: 5px; margin-top: 10px; font-weight: bold; transition: background 0.3s;">Loja</a>
+                    <a href="https://shopee.com.br/product/303439692/21128791288" target="_blank"
+                        style="display: inline-block; padding: 10px 20px; background: #4facfe; color: #fff; text-decoration: none; border-radius: 5px; margin-top: 10px; font-weight: bold; transition: background 0.3s;">Loja</a>
                 </div>
                 <!-- Item 2 -->
-                <div class="produto-item" style="flex: 0 0 auto; width: 250px; border: 1px solid #ddd; border-radius: 8px; background: #fff; text-align: center; padding: 15px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: background 0.3s ease;">
-                    <img src="guarda-roupa-01.png" alt="Guarda-Roupa" style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px; transition: transform 0.3s ease;">
-                    <h3 style="font-size: 20px; color: #333; margin: 10px 0;">Guarda-Roupa</h3>
-                    <p style="font-size: 14px; color: #777;">Organize seu espaço com estilo e praticidade.</p>
-                    <p style="font-size: 18px; font-weight: bold; color: #4facfe;">R$ 200,00</p>
-                    <a href="https://example.com/comprar-guarda-roupa" target="_blank" style="display: inline-block; padding: 10px 20px; background: #4facfe; color: #fff; text-decoration: none; border-radius: 5px; margin-top: 10px; font-weight: bold; transition: background 0.3s;">Loja</a>
+                <div class="produto-item"
+                    style="flex: 0 0 auto; width: 250px; border: 1px solid #ddd; border-radius: 8px; background: #fff; text-align: center; padding: 15px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: background 0.3s ease;">
+                    <img src="Imagem do WhatsApp de 2024-12-03 à(s) 21.19.37_380c7b98.jpg" alt="Guarda-Roupa"
+                        style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px; transition: transform 0.3s ease;">
+                    <h3 style="font-size: 20px; color: #333; margin: 10px 0;">Mesa de cabeceira</h3>
+                    <p style="font-size: 14px; color: #777;">Mesa de Cabeceira Nicho Quarto Casal Decoração Retro Palma
+                        Branco</p>
+                    <p style="font-size: 18px; font-weight: bold; color: #4facfe;">R$ 49,90 ~ R$ 37,90</p>
+                    <a href="https://s.shopee.com.br/5prSZPdKcA?share_channel_code=1" target="_blank"
+                        style="display: inline-block; padding: 10px 20px; background: #4facfe; color: #fff; text-decoration: none; border-radius: 5px; margin-top: 10px; font-weight: bold; transition: background 0.3s;">Loja</a>
                 </div>
                 <!-- Item 3 -->
-                <div class="produto-item" style="flex: 0 0 auto; width: 250px; border: 1px solid #ddd; border-radius: 8px; background: #fff; text-align: center; padding: 15px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: background 0.3s ease;">
-                    <img src="armario-cozinha-bege.png" alt="Armário de Cozinha" style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px; transition: transform 0.3s ease;">
+                <div class="produto-item"
+                    style="flex: 0 0 auto; width: 250px; border: 1px solid #ddd; border-radius: 8px; background: #fff; text-align: center; padding: 15px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: background 0.3s ease;">
+                    <img src="armario-cozinha-bege.png" alt="Armário de Cozinha"
+                        style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px; transition: transform 0.3s ease;">
                     <h3 style="font-size: 20px; color: #333; margin: 10px 0;">Armário de Cozinha</h3>
                     <p style="font-size: 14px; color: #777;">Transforme sua cozinha com montagem profissional.</p>
                     <p style="font-size: 18px; font-weight: bold; color: #4facfe;">R$ 180,00</p>
-                    <a href="https://example.com/comprar-armario-cozinha" target="_blank" style="display: inline-block; padding: 10px 20px; background: #4facfe; color: #fff; text-decoration: none; border-radius: 5px; margin-top: 10px; font-weight: bold; transition: background 0.3s;">Loja</a>
+                    <a href="https://example.com/comprar-armario-cozinha" target="_blank"
+                        style="display: inline-block; padding: 10px 20px; background: #4facfe; color: #fff; text-decoration: none; border-radius: 5px; margin-top: 10px; font-weight: bold; transition: background 0.3s;">Loja</a>
                 </div>
-                 <!-- Item 1 -->
-                 <div class="produto-item" style="flex: 0 0 auto; width: 250px; border: 1px solid #ddd; border-radius: 8px; background: #fff; text-align: center; padding: 15px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: background 0.3s ease;">
-                    <img src="br-11134207-7r98o-lqmchhwceza774.webp" alt="Aparador" style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px; transition: transform 0.3s ease;">
+                <!-- Item 1 -->
+                <div class="produto-item"
+                    style="flex: 0 0 auto; width: 250px; border: 1px solid #ddd; border-radius: 8px; background: #fff; text-align: center; padding: 15px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: background 0.3s ease;">
+                    <img src="br-11134207-7r98o-lqmchhwceza774.webp" alt="Aparador"
+                        style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px; transition: transform 0.3s ease;">
                     <h3 style="font-size: 20px; color: #333; margin: 10px 0;">Cabeceira</h3>
-                    <p style="font-size: 14px; color: #777;">Kit 7 Cabeceiras de Cama Box Casal Estofada Modulada 1,40mX45cm</p>
+                    <p style="font-size: 14px; color: #777;">Kit 7 Cabeceiras de Cama Box Casal Estofada Modulada
+                        1,40mX45cm</p>
                     <p style="font-size: 18px; font-weight: bold; color: #4facfe;">R$ 41,00 ~ R$ 73,99</p>
-                    <a href="https://shopee.com.br/product/303439692/21128791288" target="_blank" style="display: inline-block; padding: 10px 20px; background: #4facfe; color: #fff; text-decoration: none; border-radius: 5px; margin-top: 10px; font-weight: bold; transition: background 0.3s;">Loja</a>
+                    <a href="https://shopee.com.br/product/303439692/21128791288" target="_blank"
+                        style="display: inline-block; padding: 10px 20px; background: #4facfe; color: #fff; text-decoration: none; border-radius: 5px; margin-top: 10px; font-weight: bold; transition: background 0.3s;">Loja</a>
                 </div>
                 <!-- Item 2 -->
-                <div class="produto-item" style="flex: 0 0 auto; width: 250px; border: 1px solid #ddd; border-radius: 8px; background: #fff; text-align: center; padding: 15px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: background 0.3s ease;">
-                    <img src="guarda-roupa-01.png" alt="Guarda-Roupa" style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px; transition: transform 0.3s ease;">
+                <div class="produto-item"
+                    style="flex: 0 0 auto; width: 250px; border: 1px solid #ddd; border-radius: 8px; background: #fff; text-align: center; padding: 15px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: background 0.3s ease;">
+                    <img src="guarda-roupa-01.png" alt="Guarda-Roupa"
+                        style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px; transition: transform 0.3s ease;">
                     <h3 style="font-size: 20px; color: #333; margin: 10px 0;">Guarda-Roupa</h3>
                     <p style="font-size: 14px; color: #777;">Organize seu espaço com estilo e praticidade.</p>
                     <p style="font-size: 18px; font-weight: bold; color: #4facfe;">R$ 200,00</p>
-                    <a href="https://example.com/comprar-guarda-roupa" target="_blank" style="display: inline-block; padding: 10px 20px; background: #4facfe; color: #fff; text-decoration: none; border-radius: 5px; margin-top: 10px; font-weight: bold; transition: background 0.3s;">Loja</a>
+                    <a href="https://example.com/comprar-guarda-roupa" target="_blank"
+                        style="display: inline-block; padding: 10px 20px; background: #4facfe; color: #fff; text-decoration: none; border-radius: 5px; margin-top: 10px; font-weight: bold; transition: background 0.3s;">Loja</a>
                 </div>
                 <!-- Item 3 -->
-                <div class="produto-item" style="flex: 0 0 auto; width: 250px; border: 1px solid #ddd; border-radius: 8px; background: #fff; text-align: center; padding: 15px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: background 0.3s ease;">
-                    <img src="armario-cozinha-bege.png" alt="Armário de Cozinha" style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px; transition: transform 0.3s ease;">
+                <div class="produto-item"
+                    style="flex: 0 0 auto; width: 250px; border: 1px solid #ddd; border-radius: 8px; background: #fff; text-align: center; padding: 15px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: background 0.3s ease;">
+                    <img src="armario-cozinha-bege.png" alt="Armário de Cozinha"
+                        style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px; transition: transform 0.3s ease;">
                     <h3 style="font-size: 20px; color: #333; margin: 10px 0;">Armário de Cozinha</h3>
                     <p style="font-size: 14px; color: #777;">Transforme sua cozinha com montagem profissional.</p>
                     <p style="font-size: 18px; font-weight: bold; color: #4facfe;">R$ 180,00</p>
-                    <a href="https://example.com/comprar-armario-cozinha" target="_blank" style="display: inline-block; padding: 10px 20px; background: #4facfe; color: #fff; text-decoration: none; border-radius: 5px; margin-top: 10px; font-weight: bold; transition: background 0.3s;">Loja</a>
+                    <a href="https://example.com/comprar-armario-cozinha" target="_blank"
+                        style="display: inline-block; padding: 10px 20px; background: #4facfe; color: #fff; text-decoration: none; border-radius: 5px; margin-top: 10px; font-weight: bold; transition: background 0.3s;">Loja</a>
                 </div>
             </div>
         </div>
     </section>
-    
+
 
     <section id="testimonials" style="padding: 40px; background: #f9f9f9;">
         <div style="max-width: 800px; margin: 0 auto; text-align: center;">
             <h2 style="font-size: 32px; color: #333; margin-bottom: 20px;">O que falam sobre nós</h2>
             <div style="margin-bottom: 30px;">
                 <p style="font-size: 20px; font-style: italic; color: #555;">
-                    <i class="fas fa-quote-left" style="color: #4facfe; font-size: 30px; vertical-align: middle;"></i> 
-                    Contratei os serviços de montagem de móveis para meu escritório e fiquei impressionado com a rapidez e a qualidade do trabalho. Recomendo sem dúvidas!
+                    <i class="fas fa-quote-left" style="color: #4facfe; font-size: 30px; vertical-align: middle;"></i>
+                    Contratei os serviços de montagem de móveis para meu escritório e fiquei impressionado com a rapidez
+                    e a qualidade do trabalho. Recomendo sem dúvidas!
                     <i class="fas fa-quote-right" style="color: #4facfe; font-size: 30px; vertical-align: middle;"></i>
                 </p>
                 <div>
@@ -323,7 +441,7 @@
             </div>
             <div style="margin-bottom: 30px;">
                 <p style="font-size: 20px; font-style: italic; color: #555;">
-                    <i class="fas fa-quote-left" style="color: #4facfe; font-size: 30px; vertical-align: middle;"></i> 
+                    <i class="fas fa-quote-left" style="color: #4facfe; font-size: 30px; vertical-align: middle;"></i>
                     Minha cozinha planejada ficou perfeita graças à atenção e ao cuidado da equipe. Serviço excelente!
                     <i class="fas fa-quote-right" style="color: #4facfe; font-size: 30px; vertical-align: middle;"></i>
                 </p>
@@ -338,8 +456,9 @@
             </div>
             <div>
                 <p style="font-size: 20px; font-style: italic; color: #555;">
-                    <i class="fas fa-quote-left" style="color: #4facfe; font-size: 30px; vertical-align: middle;"></i> 
-                    Profissionais dedicados e organizados. O armário da minha sala ficou exatamente como eu queria. Muito obrigada!
+                    <i class="fas fa-quote-left" style="color: #4facfe; font-size: 30px; vertical-align: middle;"></i>
+                    Profissionais dedicados e organizados. O armário da minha sala ficou exatamente como eu queria.
+                    Muito obrigada!
                     <i class="fas fa-quote-right" style="color: #4facfe; font-size: 30px; vertical-align: middle;"></i>
                 </p>
                 <div>
@@ -353,7 +472,7 @@
             </div>
         </div>
     </section>
-  
+
     <footer>
         <div class="social-links">
             <a href="https://wa.me/55XXXXXXXXX" target="_blank"><i class="fab fa-whatsapp"></i></a>
@@ -376,4 +495,5 @@
         }
     </script>
 </body>
+
 </html>

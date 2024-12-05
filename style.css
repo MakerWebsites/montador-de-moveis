@@ -1,112 +1,75 @@
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
     color: #333;
+    overflow-x: hidden;
 }
 
+/* Cabeçalho */
 header {
-    background: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 10px 20px;
+    background: #fff4f4;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 
-.header-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #ff7e5f;
-}
-
-.header-img {
-    height: 40px;
-    border-radius: 50%;
-}
-
-.menu-toggle {
-    font-size: 24px;
-    cursor: pointer;
-    color: #ff7e5f;
-}
-
+/* Menu */
 .menu {
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    background: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.menu.hidden {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.95);
     display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
 }
 
-.menu ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+.menu.open {
+    display: flex;
 }
 
-.menu ul li {
-    padding: 10px 20px;
-}
-
-.menu ul li a {
-    text-decoration: none;
-    color: #333;
-}
-
+/* Principal */
 main {
-    padding: 20px;
+    padding: 10px;
 }
 
-#servicos {
-    margin-bottom: 40px;
+.carousel {
+    display: flex;
+    overflow: hidden;
+    position: relative;
 }
 
-.servicos-lista {
-    list-style: none;
-    padding: 0;
-    text-align: left;
-}
-
-.servicos-lista li {
-    margin: 5px 0;
-}
-
-#avaliacoes {
-    margin-bottom: 40px;
-}
-
-.avaliacao {
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 10px 20px;
-    margin-bottom: 20px;
-}
-
-.gold {
-    color: gold;
-}
-
+/* Footer */
 footer {
     text-align: center;
     padding: 10px;
     background: #333;
+    color: #fff;
+}
+
+.cta-button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #fff;
+    color: #4facfe;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.cta-button:hover {
+    background: #00d4ff;
     color: #fff;
 }
