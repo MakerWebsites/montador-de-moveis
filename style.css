@@ -1,0 +1,112 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    color: #333;
+}
+
+header {
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff7e5f;
+}
+
+.header-img {
+    height: 40px;
+    border-radius: 50%;
+}
+
+.menu-toggle {
+    font-size: 24px;
+    cursor: pointer;
+    color: #ff7e5f;
+}
+
+.menu {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.menu.hidden {
+    display: none;
+}
+
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu ul li {
+    padding: 10px 20px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+main {
+    padding: 20px;
+}
+
+#servicos {
+    margin-bottom: 40px;
+}
+
+.servicos-lista {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.servicos-lista li {
+    margin: 5px 0;
+}
+
+#avaliacoes {
+    margin-bottom: 40px;
+}
+
+.avaliacao {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    margin-bottom: 20px;
+}
+
+.gold {
+    color: gold;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #333;
+    color: #fff;
+}

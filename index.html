@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Montador de Móveis</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            color: #333;
+            overflow-x: hidden;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background: #fff4f4f4;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .menu-toggle {
+            font-size: 24px;
+            cursor: pointer;
+            color: #4facfe;
+            transition: transform 0.3s ease-in-out;
+        }
+        .menu-toggle.open {
+            transform: rotate(45deg);
+        }
+
+        .menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        .menu.open {
+            display: flex;
+            opacity: 1;
+        }
+
+        .menu ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .menu ul li {
+            padding: 10px 20px;
+        }
+        .menu ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 24px;
+        }
+        .menu button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            background: none;
+            border: none;
+            color: #333;
+            cursor: pointer;
+        }
+
+        main {
+            padding: 10px;
+        }
+
+        .carousel {
+            display: flex;
+            overflow: hidden;
+            position: relative;
+        }
+        .carousel-images {
+            display: flex;
+            animation: scroll 30s linear infinite;
+        }
+        .carousel img {
+            width: 20%;
+            margin-right: 10px;
+        }
+
+        @keyframes scroll {
+            50% { transform: translateX(-110%); }
+            100% { transform: translateX(110%); }
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #333;
+            color: #fff;
+        }
+        footer .social-links {
+            margin: 10px 0;
+        }
+        footer .social-links a {
+            color: #fff;
+            margin: 0 5px;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: #fff;
+            color: #4facfe;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .cta-button:hover {
+            background: #00d4ff;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="menu-toggle" id="menuToggle" onclick="toggleMenu()">☰</div>
+        <img src="Gemini_Generated_Image_us627sus627sus62.jpg" alt="Logo da Empresa" style="height: 50px;">
+    </header>
+    
+    <nav class="menu" id="menu" aria-hidden="true">
+        <button onclick="toggleMenu()">X</button>
+        <ul>
+            <li><a href="#home" onclick="toggleMenu()">Página Principal</a></li>
+            <li><a href="#sobre" onclick="toggleMenu()">Sobre</a></li>
+            <li><a href="#quem-somos" onclick="toggleMenu()">Quem Somos</a></li>
+            <li><a href="#contato" onclick="toggleMenu()">Contato</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="carousel">
+            <div class="carousel-images">
+                <img src="aparador.png" alt="Imagem 1">
+                <img src="guarda-roupa-01.png" alt="Imagem 2">
+                <img src="armario-cozinha-bege.png" alt="Imagem 3">
+                <img src="cama-crianca.png" alt="Imagem 4">
+                <img src="rack.png" alt="Imagem 5">
+            </div>
+        </div>
+    </main>
+
+    <section id="sobre">
+        <div style="padding: 20px; background: #f9f9f9; text-align: center;">
+            <h2>Sobre Nossa Empresa</h2>
+            <p>
+                Somos especialistas na montagem de móveis de todos os tipos, desde móveis convencionais até modulados e corporativos. 
+                Nosso compromisso é garantir qualidade, agilidade e satisfação em cada serviço realizado.
+            </p>
+        </div>
+    </section>
+
+    <section id="call-to-action">
+        <div style="padding: 20px; background: #4facfe; color: #fff; text-align: center;">
+            <h2>Solicite um Orçamento Agora</h2>
+            <p>
+                Entre em contato conosco e descubra como podemos ajudar você a transformar seus espaços com móveis montados com perfeição.
+            </p>
+            <a href="#contato" class="cta-button">Solicitar Orçamento</a>
+        </div>
+    </section>
+
+    <section id="quem-somos" style="padding: 40px; background: #f4f4f4;">
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <h2>Quem Somos</h2>
+            <p>
+                Somos uma empresa especializada na montagem de móveis, comprometida em oferecer soluções práticas e de alta qualidade. 
+                Nossa equipe é composta por profissionais altamente qualificados e experientes, apaixonados por transformar projetos em realidade.
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Antolin & Co. Todos os direitos reservados.</p>
+        <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            const menuToggle = document.getElementById('menuToggle');
+
+            menu.classList.toggle('open');
+            menuToggle.classList.toggle('open');
+            menu.setAttribute('aria-hidden', menu.classList.contains('open') ? 'false' : 'true');
+        }
+    </script>
+</body>
+</html>
