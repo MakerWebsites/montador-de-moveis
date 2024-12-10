@@ -6,20 +6,44 @@ body {
     overflow-x: hidden;
 }
 
-/* Cabeçalho */
 header {
+    padding: 8px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px;
-    background: #fff4f4;
+    background: #F5F5F5;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
-/* Menu */
+header a {
+    text-decoration: none;
+    background-color: #ccf7ff;
+    color: white;
+    font-weight: bolder;
+    padding: 5px;
+    margin: 4px;
+    border-radius: 6px;
+}
+
+.menu-toggle {
+    font-size: 30px;
+    cursor: pointer;
+    color: #4facfe;
+    transition: transform 0.3s ease-in-out;
+}
+
+.menu-toggle.open {
+    transform: rotate(45deg);
+}
+
+h1 {
+    padding: 0;
+    margin: 0;
+}
+
 .menu {
     position: fixed;
     top: 0;
@@ -32,13 +56,43 @@ header {
     align-items: center;
     justify-content: center;
     z-index: 2000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 .menu.open {
     display: flex;
+    opacity: 1;
 }
 
-/* Principal */
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.menu ul li {
+    padding: 10px 20px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 24px;
+}
+
+.menu button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: #333;
+    cursor: pointer;
+}
+
 main {
     padding: 10px;
 }
@@ -49,12 +103,42 @@ main {
     position: relative;
 }
 
-/* Footer */
+.carousel-images {
+    display: flex;
+    animation: scroll 30s linear infinite;
+}
+
+.carousel img {
+    width: 20%;
+    margin-right: 10px;
+}
+
+@keyframes scroll {
+    50% {
+        transform: translateX(-110%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
+
 footer {
     text-align: center;
     padding: 10px;
     background: #333;
     color: #fff;
+}
+
+footer .social-links {
+    margin: 10px 0;
+}
+
+footer .social-links a {
+    color: #fff;
+    margin: 0 5px;
+    text-decoration: none;
+    font-size: 20px;
 }
 
 .cta-button {
@@ -73,3 +157,219 @@ footer {
     background: #00d4ff;
     color: #fff;
 }
+
+/* Menu fixo no canto inferior direito */
+.fixed-menu {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.fixed-menu a {
+    background: #25d366;
+    /* WhatsApp Green */
+    color: #fff;
+    padding: 15px;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    font-size: 25px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.fixed-menu a.phone {
+    background: #34b7f1;
+    /* Light blue for call */
+}
+
+.fixed-menu a:hover {
+    transform: scale(1.1);
+}
+
+/* Animação de trepidação */
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    50% {
+        transform: translateX(5px);
+    }
+
+    75% {
+        transform: translateX(-5px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.fixed-menu a {
+    animation: shake 2s ease-in-out infinite 3s;
+}
+
+/* Section styles */
+.animated-section {
+    position: relative;
+    background-color: transparent;
+    width: 100%;
+    height: 6vh;
+    /* Ajuste conforme necessário */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Animated text */
+.animated-text {
+    font-family: 'Arial', sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    color: #ffffff;
+    position: absolute;
+    white-space: nowrap;
+    border-radius: 10px;
+    padding: 4px;
+    text-transform: uppercase;
+    animation: slideInOut 4s ease-in-out infinite;
+}
+
+
+/* Keyframes for animation */
+@keyframes slideInOut {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    10% {
+        transform: translateX(0);
+
+        opacity: 1;
+    }
+
+    90% {
+        transform: translateX(0);
+
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+#produtos {
+    padding: 40px;
+    background: #f9f9f9;
+}
+
+#produtos h2 {
+    text-align: center;
+    color: #333;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.produtoss {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.produtos-lista {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding-bottom: 10px;
+}
+
+
+.produto-item {
+    flex: 0 0 auto;
+    width: 250px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+    text-align: center;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease;
+}
+
+.produto-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.produto-item h3 {
+    font-size: 20px;
+    color: #333;
+    margin: 10px 0;
+}
+
+.produto-item a {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #4facfe;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.descricao-produto-item {
+    font-size: 14px;
+    color: #777;
+}
+
+.preco-produto-item {
+    font-size: 18px;
+    font-weight: bold;
+    color: #4facfe;
+}
+
+.imagem-armario-montagem {
+    position: relative;
+}
+
+.imagem-armario-montagem img {
+    width: 100%;
+}
+
+.texto-imagem {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    position: absolute;
+    text-transform: lowercase;
+    width: 95%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    text-align: center;
+    color: #ffffff;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-shadow: 0px 3px 5px rgb(0, 0, 0);
+}
+
+@media (min-width: 900px) {
+    /* Estilos para telas com largura mínima de 900px */
+ 
+  }
