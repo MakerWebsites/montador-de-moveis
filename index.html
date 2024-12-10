@@ -5,292 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Montador de Móveis</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #4facfe, #00f2fe);
-            color: #333;
-            overflow-x: hidden;
-        }
-
-        header {
-            padding: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: #f4fffb;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        header a {
-            text-decoration: none;
-            background-color: #ccf7ff;
-            color: white;
-            font-weight: bolder;
-            padding: 5px;
-            margin: 4px;
-            border-radius: 6px;
-        }
-
-        .menu-toggle {
-            font-size: 30px;
-            cursor: pointer;
-            color: #4facfe;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .menu-toggle.open {
-            transform: rotate(45deg);
-        }
-
-        h1 {
-            padding: 0;
-            margin: 0;
-        }
-
-        .menu {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 2000;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-        }
-
-        .menu.open {
-            display: flex;
-            opacity: 1;
-        }
-
-        .menu ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-
-        .menu ul li {
-            padding: 10px 20px;
-        }
-
-        .menu ul li a {
-            text-decoration: none;
-            color: #333;
-            font-size: 24px;
-        }
-
-        .menu button {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 24px;
-            background: none;
-            border: none;
-            color: #333;
-            cursor: pointer;
-        }
-
-        main {
-            padding: 10px;
-        }
-
-        .carousel {
-            display: flex;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .carousel-images {
-            display: flex;
-            animation: scroll 30s linear infinite;
-        }
-
-        .carousel img {
-            width: 20%;
-            margin-right: 10px;
-        }
-
-        @keyframes scroll {
-            50% {
-                transform: translateX(-110%);
-            }
-
-            100% {
-                transform: translateX(0%);
-            }
-        }
-
-        footer {
-            text-align: center;
-            padding: 10px;
-            background: #333;
-            color: #fff;
-        }
-
-        footer .social-links {
-            margin: 10px 0;
-        }
-
-        footer .social-links a {
-            color: #fff;
-            margin: 0 5px;
-            text-decoration: none;
-            font-size: 20px;
-        }
-
-        .cta-button {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 10px 20px;
-            background: #fff;
-            color: #4facfe;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background 0.3s;
-        }
-
-        .cta-button:hover {
-            background: #00d4ff;
-            color: #fff;
-        }
-
-        /* Menu fixo no canto inferior direito */
-        .fixed-menu {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            z-index: 1000;
-        }
-
-        .fixed-menu a {
-            background: #25d366;
-            /* WhatsApp Green */
-            color: #fff;
-            padding: 15px;
-            border-radius: 50%;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            font-size: 25px;
-            text-align: center;
-            transition: all 0.3s;
-        }
-
-        .fixed-menu a.phone {
-            background: #34b7f1;
-            /* Light blue for call */
-        }
-
-        .fixed-menu a:hover {
-            transform: scale(1.1);
-        }
-
-        /* Animação de trepidação */
-        @keyframes shake {
-            0% {
-                transform: translateX(0);
-            }
-
-            25% {
-                transform: translateX(-5px);
-            }
-
-            50% {
-                transform: translateX(5px);
-            }
-
-            75% {
-                transform: translateX(-5px);
-            }
-
-            100% {
-                transform: translateX(0);
-            }
-        }
-
-        .fixed-menu a {
-            animation: shake 2s ease-in-out infinite 3s;
-        }
-
-        /* Section styles */
-        .animated-section {
-            position: relative;
-            background-color: transparent;
-            width: 100%;
-            height: 6vh;
-            /* Ajuste conforme necessário */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
-
-        /* Animated text */
-        .animated-text {
-            font-family: 'Arial', sans-serif;
-            font-size: 12px;
-            letter-spacing: 2px;
-            font-weight: bold;
-            color: #ffffff;
-            position: absolute;
-            white-space: nowrap;
-            border-radius: 10px;
-            padding: 4px;
-            text-transform: uppercase;
-            animation: slideInOut 6s ease-in-out infinite;
-        }
-
-
-        /* Keyframes for animation */
-        @keyframes slideInOut {
-            0% {
-                transform: translateX(-100%);
-                opacity: 0;
-            }
-
-            10% {
-                transform: translateX(0);
-
-                opacity: 1;
-            }
-
-            90% {
-                transform: translateX(0);
-
-                opacity: 1;
-            }
-
-            100% {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-        }
-    </style>
 </head>
 
 <body>
+    
     <header>
         <div class="menu-toggle" id="menuToggle" onclick="toggleMenu()">☰</div>
 
-        <img style="width: 200px;" src="Gemini_Generated_Image_us627sus627sus62.jpg" alt="">
+        <img style="width: 220px;" src="assets/Imagens/Gemini_Generated_Image_us627sus627sus62.jpg" alt="">
     </header>
-
-
-
 
     <nav class="menu" id="menu" aria-hidden="true">
         <button onclick="toggleMenu()">X</button>
@@ -317,22 +42,21 @@
     <main>
         <div class="carousel">
             <div class="carousel-images">
-                <img src="aparador.png" alt="Imagem 1">
-                <img src="guarda-roupa-01.png" alt="Imagem 2">
-                <img src="armario-cozinha-bege.png" alt="Imagem 3">
-                <img src="cama-crianca.png" alt="Imagem 4">
-                <img src="rack.png" alt="Imagem 5">
-                <img src="aparador.png" alt="Imagem 1">
-                <img src="guarda-roupa-01.png" alt="Imagem 2">
-                <img src="armario-cozinha-bege.png" alt="Imagem 3">
-                <img src="cama-crianca.png" alt="Imagem 4">
-                <img src="rack.png" alt="Imagem 5">
-                <img src="aparador.png" alt="Imagem 1">
-                <img src="guarda-roupa-01.png" alt="Imagem 2">
-                <img src="armario-cozinha-bege.png" alt="Imagem 3">
-                <img src="cama-crianca.png" alt="Imagem 4">
-                <img src="rack.png" alt="Imagem 5">
-
+                <img src="assets/Imagens/aparador.png" alt="">
+                <img src="assets/Imagens/guarda-roupa-01.png" alt="">
+                <img src="assets/Imagens/armario-cozinha-bege.png" alt="">
+                <img src="assets/Imagens/cama-crianca.png" alt="">
+                <img src="assets/Imagens/rack.png" alt="">
+                <img src="assets/Imagens/aparador.png" alt="">
+                <img src="assets/Imagens/guarda-roupa-01.png" alt="">
+                <img src="assets/Imagens/armario-cozinha-bege.png" alt="">
+                <img src="assets/Imagens/cama-crianca.png" alt="">
+                <img src="assets/Imagens/rack.png" alt="">
+                <img src="assets/Imagens/aparador.png" alt="">
+                <img src="assets/Imagens/guarda-roupa-01.png" alt="">
+                <img src="assets/Imagens/armario-cozinha-bege.png" alt="">
+                <img src="assets/Imagens/cama-crianca.png" alt="">
+                <img src="assets/Imagens/rack.png" alt="">
             </div>
         </div>
     </main>
@@ -364,36 +88,83 @@
         </div>
     </section>
 
-    <section id="produtos" style="padding: 40px; background: #f9f9f9;">
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <h2 style="text-align: center; color: #333; font-size: 32px; margin-bottom: 20px;">Produtos</h2>
-            <div class="produtos-lista" style="display: flex; overflow-x: auto; gap: 20px; padding-bottom: 10px;">
-                <!-- Item 1 -->
-                <div class="produto-item"
-                    style="flex: 0 0 auto; width: 250px; border: 1px solid #ddd; border-radius: 8px; background: #fff; text-align: center; padding: 15px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: background 0.3s ease;">
-                    <img src="br-11134207-7r98o-lqmchhwceza774.webp" alt="Aparador"
-                        style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px; transition: transform 0.3s ease;">
-                    <h3 style="font-size: 20px; color: #333; margin: 10px 0;">Cabeceira</h3>
-                    <p style="font-size: 14px; color: #777;">Kit 7 Cabeceiras de Cama Box Casal Estofada Modulada
-                        1,40mX45cm</p>
-                    <p style="font-size: 18px; font-weight: bold; color: #4facfe;">R$ 41,00 ~ R$ 73,99</p>
-                    <a href="https://shopee.com.br/product/303439692/21128791288" target="_blank"
-                        style="display: inline-block; padding: 10px 20px; background: #4facfe; color: #fff; text-decoration: none; border-radius: 5px; margin-top: 10px; font-weight: bold; transition: background 0.3s;">Loja</a>
+    <section class="imagem-armario-montagem">
+        <img src="assets/Imagens/armario-cozinha-montagem.jpg" alt="">
+        <div class="texto-imagem">Transforme sua casa com móveis montados na hora!</div>
+    </section>
+
+    <section id="produtos">
+
+        <div class="produtoss">
+            <h2>Produtos</h2>
+
+            <div class="produtos-lista">
+                <!-- Cabeceira -->
+
+                <div class="produto-item">
+
+                    <img src="assets/Imagens/br-11134207-7r98o-lqmchhwceza774.webp" alt="Aparador">
+
+                    <h3>Cabeceira</h3>
+
+                    <p class="descricao-produto-item">Kit 7 Cabeceiras de Cama Box Casal Estofada Modulada 1,40mX45cm</p>
+
+                    <a href="https://shopee.com.br/product/303439692/21128791288" target="_blank">Acessar loja</a>
+
                 </div>
-                <!-- Item 2 -->
-                <div class="produto-item"
-                    style="flex: 0 0 auto; width: 250px; border: 1px solid #ddd; border-radius: 8px; background: #fff; text-align: center; padding: 15px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: background 0.3s ease;">
-                    <img src="Imagem do WhatsApp de 2024-12-03 à(s) 21.19.37_380c7b98.jpg" alt="Guarda-Roupa"
-                        style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px; transition: transform 0.3s ease;">
-                    <h3 style="font-size: 20px; color: #333; margin: 10px 0;">Mesa de cabeceira</h3>
-                    <p style="font-size: 14px; color: #777;">Mesa de Cabeceira Nicho Quarto Casal Decoração Retro Palma
-                        Branco</p>
-                    <p style="font-size: 18px; font-weight: bold; color: #4facfe;">R$ 37,90 ~ R$ 49,90</p>
-                    <a href="https://s.shopee.com.br/5prSZPdKcA?share_channel_code=1" target="_blank"
-                        style="display: inline-block; padding: 10px 20px; background: #4facfe; color: #fff; text-decoration: none; border-radius: 5px; margin-top: 10px; font-weight: bold; transition: background 0.3s;">Loja</a>
+
+                <!-- Aparador -->
+                <div class="produto-item">
+
+                    <img src="assets/Imagens/image.png" alt="">
+
+                    <h3>Aparador</h3>
+
+                    <p class="descricao-produto-item">Aparador Buffet Multiuso Retrô Cantinho do Café Bali</p>
+
+                    <a href="https://s.shopee.com.br/AUdQGYFuut" target="_blank">Acessar loja</a>
+
                 </div>
-            </div>
-        </div>
+
+                <!-- Escrivaninha -->
+                <div class="produto-item">
+
+                    <img src="assets/Imagens/sg-11134201-7rd43-lun725hb8yxg6b.webp" alt="">
+
+                    <h3>Escrivaninha</h3>
+
+                    <p class="descricao-produto-item">Kit 2 Peças Escrivaninha com Estante Guaili Yescasai</p>
+
+                    <a href="https://s.shopee.com.br/2qDz8WDEtV" target="_blank">Acessar loja</a>
+
+                </div>
+                
+                <!-- Mesa office -->
+                <div class="produto-item">
+
+                    <img src="assets/Imagens/mesa-office.webp" alt="">
+
+                    <h3>Mesa office</h3>
+
+                    <p class="descricao-produto-item">Mesa Office com estante lateral Multimóveis Branco/Lacca Fume</p>
+
+                    <a href="https://s.shopee.com.br/7AMyIYq7JH" target="_blank">Acessar loja</a>
+
+                </div>
+
+                    <!-- Mesa com gaveta -->
+                    <div class="produto-item">
+
+                        <img src="assets/Imagens/mesa-com-gaveta.webp" alt="">
+    
+                        <h3>Mesa com gaveta</h3>
+    
+                        <p class="descricao-produto-item">Mesa Com Gaveta Deslizante Para Maquiagem e Notebook</p>
+    
+                        <a href="https://s.shopee.com.br/6fQhhhYWxz" target="_blank">Acessar loja</a>
+    
+                    </div>
+                
     </section>
 
     <section id="quem-somos" style="padding: 40px; background: #f4f4f4;">
@@ -405,6 +176,22 @@
                 Nossa equipe é composta por profissionais altamente qualificados e experientes, apaixonados por
                 transformar projetos em realidade.
             </p>
+        </div>
+    </section>
+
+    <section class="animated-section">
+        <h1 class="animated-text">montamos seu móvel contate-nos agora!</h1>
+    </section>
+
+    <section id="call-to-action">
+        <div style="padding: 20px; background: #4facfe; color: #fff; text-align: center;">
+            <h2>Solicite um Orçamento Agora</h2>
+            <p>
+                Entre em contato conosco e descubra como podemos ajudar você a transformar seus espaços com móveis
+                montados com perfeição.
+            </p>
+            <a href="https://wa.me/5511937457836" class="cta-button">Solicitar Orçamento</a>
+
         </div>
     </section>
 
@@ -466,7 +253,7 @@
             <a href="https://wa.me/5511937457836" target="_blank"><i class="fab fa-whatsapp"></i></a>
             <a href="tel:+5511937457836" class="phone"><i class="fas fa-phone-alt"></i></a>
         </div>
-        <p>&copy; 2024 Montagem de Móveis. Todos os direitos reservados.</p>
+        <p>&copy; 2024 Antolin & Co. Todos os direitos reservados.</p>
     </footer>
 
     <div class="fixed-menu">
@@ -484,6 +271,7 @@
             toggle.classList.toggle('open');
         }
     </script>
+
 </body>
 
 </html>
