@@ -1,4 +1,5 @@
 body {
+    letter-spacing: 1px;
     margin: 0;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background: linear-gradient(135deg, #4facfe, #00f2fe);
@@ -157,6 +158,7 @@ footer .social-links a {
 .cta-button:hover {
     background: #00d4ff;
     color: #fff;
+    transform: scale(1.2);
 }
 
 /* Menu fixo no canto inferior direito */
@@ -233,6 +235,7 @@ footer .social-links a {
 
 /* Animated text */
 .animated-text {
+    text-shadow: 0px 0px 3px black;
     font-family: 'Arial', sans-serif;
     font-size: 12px;
     letter-spacing: 2px;
@@ -244,6 +247,33 @@ footer .social-links a {
     padding: 4px;
     text-transform: uppercase;
     animation: slideInOut 4s ease-in-out infinite;
+}
+
+ /* Container da seta */
+ .arrow-container {
+    background-color: #009dbc26;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;  /* Certifica-se que a seta fique centralizada verticalmente */
+    margin-top: 20px; /* Espaço entre os produtos e a seta */
+    position: relative;
+     /* Coloca a seta em um nível superior */
+}
+
+/* Estilização da seta */
+.arrow-indicator, .arrow-container p {
+    margin: 3px;
+    font-size: 20px; /* Tamanho maior para garantir visibilidade */
+    color: black;
+    animation: arrow-bounce 1s infinite alternate;
+    position: relative;
+}
+
+/* Animação da seta */
+@keyframes arrow-bounce {
+    0% { transform: translateX(0); opacity: 1; }
+    100% { transform: translateX(10px); opacity: 0.5; }
 }
 
 
@@ -273,7 +303,7 @@ footer .social-links a {
 }
 
 #produtos {
-    padding: 40px;
+    padding: 10px;
     background: #f9f9f9;
 }
 
@@ -293,13 +323,13 @@ footer .social-links a {
     display: flex;
     overflow-x: auto;
     gap: 20px;
-    padding-bottom: 10px;
+    padding: 20px;
 }
 
 
 .produto-item {
     flex: 0 0 auto;
-    width: 250px;
+    width: 180px;
     border: 1px solid #ddd;
     border-radius: 8px;
     background: #fff;
@@ -335,6 +365,11 @@ footer .social-links a {
     transition: background 0.3s;
 }
 
+.produto-item:hover {
+    background-color: rgba(0, 128, 255, 0.259);
+    transform: scale(1.01);
+}
+
 .descricao-produto-item {
     font-size: 14px;
     color: #777;
@@ -352,6 +387,17 @@ footer .social-links a {
 
 .imagem-armario-montagem img {
     width: 100%;
+}
+
+#testimonials {
+    padding: 40px; background: #f9f9f9;
+}
+
+#testimonials img {
+    margin: 20px;
+    width: 80%;
+    border-radius: 8px;
+    box-shadow: 0px 0px 20px 1px black;
 }
 
 .texto-imagem {
