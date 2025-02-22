@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orçamento de Móveis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #004080;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .container {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 255, 0.2);
+            width: 100%;
+            max-width: 400px;
+            margin: 80px auto 50px;
+            position: relative;
+        }
+        h2 {
+            text-align: center;
+            color: #004080;
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+            color: #004080;
+            display: block;
+            margin-top: 10px;
+        }
+        input, select, button {
+            width: 90%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #004080;
+            border-radius: 5px;
+            outline: none;
+        }
+        input[type="text"]:focus, select:focus {
+            border-color: #0066cc;
+        }
+        button {
+            background: #004080;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+            margin-top: 20px;
+        }
+        button:hover {
+            background: #002050;
+        }
+        .explanation {
+            font-size: 12px;
+            color: #555555;
+            margin-top: 5px;
+        }
+        .info {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #004080;
+        }
+        .privacy-policy {
+            font-size: 12px;
+            color: #004080;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .privacy-policy a {
+            color: #004080;
+            text-decoration: none;
+        }
+        .privacy-policy a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            background-color: #004080;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+        footer p {
+            margin: 0;
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+                margin: 100px auto 50px;
+            }
+            input, select, button {
+            width: 90%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #004080;
+            border-radius: 5px;
+            outline: none;
+        }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Antolin & Co. - Orçamento de Móveis</h1>
+    </header>
+
+    <div class="container">
+        <h2>Solicite seu Orçamento</h2>
+        <form onsubmit="enviarWhatsApp(event)">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+            <div class="explanation">Precisamos do seu nome para identificarmos sua solicitação e garantir um atendimento personalizado.</div>
+            
+            <label for="cep">CEP:</label>
+            <input type="text" id="cep" name="cep" maxlength="8" required>
+            <div class="explanation">BUSCA AUTOMÁTICA DO CEP</div>
+            <button type="button" onclick="buscarEndereco()">Buscar Endereço</button>
+            <div class="explanation">O CEP é necessário para localizarmos o seu endereço e planejarmos a entrega ou visita ao local.</div>
+            
+            <label for="endereco">Endereço:</label>
+            <input type="text" id="endereco" name="endereco" required>
+            <div class="explanation">Precisamos do seu endereço completo para realizar o agendamento do serviço e calcular o valor do deslocamento, caso necessário.</div>
+            
+            <label for="numero">Número Residencial:</label>
+            <input type="text" id="numero" name="numero" placeholder="Digite o número ou 's/n'" required>
+            <div class="explanation">O número é importante para que possamos localizar o endereço corretamente e realizar a visita ou entrega.</div>
+            
+            <label for="servico">Serviço:</label>
+            <select id="servico" name="servico">
+                <option value="Montagem">Montagem</option>
+                <option value="Desmontagem">Desmontagem</option>
+            </select>
+            <div class="explanation">Precisamos saber o tipo de serviço que você deseja para podermos agendar e organizar a execução.</div>
+            
+            <label for="tipoMovel">Tipo de Móvel:</label>
+            <input type="text" id="tipoMovel" name="tipoMovel" required>
+            <div class="explanation">O tipo de móvel é essencial para definir os recursos necessários e o tempo de execução do serviço.</div>
+            
+            <label for="marcaModelo">Marca/Modelo (se houver):</label>
+            <input type="text" id="marcaModelo" name="marcaModelo">
+            <div class="explanation">Se houver informações específicas sobre o móvel, isso ajudará a preparar os recursos necessários para o serviço.</div>
+            
+            <label for="dia">Dia:</label>
+            <select id="dia" name="dia" required>
+                <option value="Segunda-feira">Segunda-feira</option>
+                <option value="Terça-feira">Terça-feira</option>
+                <option value="Quarta-feira">Quarta-feira</option>
+                <option value="Quinta-feira">Quinta-feira</option>
+                <option value="Sexta-feira">Sexta-feira</option>
+            </select>
+            <div class="explanation">Escolha o dia que seja mais conveniente para você para agendarmos o serviço.</div>
+            
+            <label for="horario">Horário:</label>
+            <input type="text" id="horario" name="horario" placeholder="Preferência pela manhã." required>
+            <div class="explanation">Defina o horário para que possamos programar a visita conforme sua disponibilidade.</div>
+            
+            <button type="submit">Solicitar Orçamento</button>
+        </form>
+        <div class="info">Pagamento via Pix, dinheiro, cartão de crédito e débito.</div>
+        <div class="privacy-policy">
+            Ao enviar este formulário, você concorda com nossa <a href="#privacy-policy" onclick="alert('Política de Privacidade: Seus dados serão usados exclusivamente para processar seu orçamento e não serão compartilhados com terceiros.')">Política de Privacidade</a>.
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Antolin & Co. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        function buscarEndereco() {
+            let cep = document.getElementById("cep").value;
+            if (cep.length === 8) {
+                fetch(`https://viacep.com.br/ws/${cep}/json/`)
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById("endereco").value = data.logradouro + ", " + data.bairro + ", " + data.localidade + " - " + data.uf;
+                    })
+                    .catch(error => alert("Erro ao buscar endereço."));
+            } else {
+                alert("Digite um CEP válido.");
+            }
+        }
+        function enviarWhatsApp(event) {
+            event.preventDefault();
+            let nome = document.getElementById("nome").value;
+            let cep = document.getElementById("cep").value;
+            let endereco = document.getElementById("endereco").value;
+            let numero = document.getElementById("numero").value;
+            let servico = document.getElementById("servico").value;
+            let tipoMovel = document.getElementById("tipoMovel").value;
+            let marcaModelo = document.getElementById("marcaModelo").value;
+            let dia = document.getElementById("dia").value;
+            let horario = document.getElementById("horario").value;
+            
+            let mensagem = `Olá, gostaria de solicitar um orçamento.%0A%0A` +
+                `*Nome:* ${nome}%0A` +
+                `*CEP:* ${cep}%0A` +
+                `*Endereço:* ${endereco}, Nº ${numero}%0A` +
+                `*Serviço:* ${servico}%0A` +
+                `*Tipo de Móvel:* ${tipoMovel}%0A` +
+                `*Marca/Modelo:* ${marcaModelo}%0A` +
+                `*Dia:* ${dia}%0A` +
+                `*Horário:* ${horario}%0A%0A` +
+                `*Formas de Pagamento:* Pix, dinheiro, cartão de crédito e débito.`;
+            
+            let url = `https://api.whatsapp.com/send?phone=5511937457836&text=${mensagem}`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>

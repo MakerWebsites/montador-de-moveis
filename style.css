@@ -2,7 +2,7 @@ body {
     letter-spacing: 1px;
     margin: 0;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    background: linear-gradient(135deg, #2e587d, #000000);
     color: #333;
     overflow-x: hidden;
 }
@@ -15,7 +15,7 @@ header {
     background: #F5F5F5;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: sticky;
-    top: 0;
+    top: -2px;
     z-index: 1000;
 }
 
@@ -124,6 +124,58 @@ main {
     }
 }
 
+.carrossel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.slides-container {
+    display: flex;
+    transition: transform 1s ease;
+}
+
+.slide {
+    min-width: 100%;
+}
+
+.slide img {
+    padding-top: 10px;
+    width: 100%;
+    height: auto; /* Mantém a proporção da imagem */
+    max-height: 80vh; /* Impede que a imagem ocupe a tela inteira em telas grandes */
+    object-fit: contain; /* Mantém a qualidade sem cortes */
+}
+
+
+.dots-container {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dot:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.dot.active {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+
 footer {
     letter-spacing: 1px;
     text-align: center;
@@ -185,7 +237,7 @@ footer .social-links a {
 }
 
 .fixed-menu a.phone {
-    background: #34b7f1;
+    background: linear-gradient(135deg, #2e587d, #000000);
     /* Light blue for call */
 }
 
@@ -300,85 +352,6 @@ footer .social-links a {
         transform: translateX(100%);
         opacity: 0;
     }
-}
-
-#produtos {
-    padding: 10px;
-    background: #f9f9f9;
-}
-
-#produtos h2 {
-    text-align: center;
-    color: #333;
-    font-size: 32px;
-    margin-bottom: 20px;
-}
-
-.produtoss {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.produtos-lista {
-    display: flex;
-    overflow-x: auto;
-    gap: 20px;
-    padding: 20px;
-}
-
-
-.produto-item {
-    flex: 0 0 auto;
-    width: 180px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background: #fff;
-    text-align: center;
-    padding: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background 0.3s ease;
-}
-
-.produto-item img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 8px;
-    transition: transform 0.3s ease;
-}
-
-.produto-item h3 {
-    font-size: 20px;
-    color: #333;
-    margin: 10px 0;
-}
-
-.produto-item a {
-    display: inline-block;
-    padding: 10px 20px;
-    background: #4facfe;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 10px;
-    font-weight: bold;
-    transition: background 0.3s;
-}
-
-.produto-item:hover {
-    background-color: rgba(0, 128, 255, 0.259);
-    transform: scale(1.01);
-}
-
-.descricao-produto-item {
-    font-size: 14px;
-    color: #777;
-}
-
-.preco-produto-item {
-    font-size: 18px;
-    font-weight: bold;
-    color: #4facfe;
 }
 
 .imagem-armario-montagem {
